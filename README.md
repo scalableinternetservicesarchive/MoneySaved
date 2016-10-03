@@ -1,24 +1,9 @@
-# README
+# MoneySaved
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Team Member
 
-Things you may want to cover:
+Zhongqi Yi
 
-* Ruby version
+Chutian Shen
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Qiufeng Zhu
