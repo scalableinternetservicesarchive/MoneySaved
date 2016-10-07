@@ -1,9 +1,13 @@
-# MoneySaved
+## MoneySaved
+The website aims to gather discount information from main online shopping website, like Amazon, Nike, blahblahblah.
+The users can find these disconut information without browsing the websites of each brand one by one. Users can like or comment on each deals and get the detail of each deal.
+For overseas buyers, they can order online and use the address of a warehouse in U.S. We will transfer those things to where the buyers live.
 
-# Team Member
+## Team Member
 
 Zhongqi Yi
-<img src=https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb0AAAAJDNmM2MyZDExLTcwYjctNDI5Ni05NGFiLTE5MGU2YWQ2OTE0MQ.jpg title="zhongqi yi" height="250" />
+
+<img src=https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb0AAAAJDNmM2MyZDExLTcwYjctNDI5Ni05NGFiLTE5MGU2YWQ2OTE0MQ.jpg title="zhongqi yi" height="150" />
 
 Chutian Shen
 
