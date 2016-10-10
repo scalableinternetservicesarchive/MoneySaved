@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
 	def home
-		#render html: "welcome!!!!!!!"
+		@category = Category.all
 	end
 end
