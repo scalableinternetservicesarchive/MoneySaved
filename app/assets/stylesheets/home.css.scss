@@ -48,3 +48,39 @@ body {
     color: #333;
 }
 
+.quick-search-form .form-control {
+height: 35px;
+padding: 8px;
+color: #a4a4a4;   /* change  color of text to be typed inside search box */
+font-size: 13px;
+line-height: 20px;
+background-color: transparent;
+border: 1px solid #ccc;
+border-radius: 0!important;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
+
+
+.btn-custom {           
+background-color: #7bae23;   /* change  button color */
+border-radius: 0!important;    /* button border radius */
+padding: 6px 10px;              /* Button size change*/
+
+}
+
+.btn-custom:hover{
+background-color:#9AC94B; /* change  button color on hover */
+border-radius: 0!important;
+
+}
+
+
+.custom-glyph-color{
+    color:#fff;       /* change  magnifying glass color in  button */
+}
+
+.custom-glyph-color:hover{
+    color:#b1b1b1;         /* change  magnifying glass color in  button on mouse hover */
+}
