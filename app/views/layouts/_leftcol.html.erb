@@ -1,0 +1,8 @@
+ 			<div class="col-md-3">
+                <p class="lead">Category</p>
+                <div class="list-group">
+                    <% @category.each do |c| %>
+                        <a href="#" class="list-group-item"><%= "#{c.name}"%></a>
+                    <% end %>
+                </div>
+            </div>
