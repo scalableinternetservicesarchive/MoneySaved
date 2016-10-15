@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'detail/show'
+  
   get 'sessions/new'
   resources :users
   

@@ -1,50 +1,43 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/leftcol' %>
+<div class="col-md-9">
 
-<p>
-  <strong>Name:</strong>
-  <%= @deal.name %>
-</p>
+    <div class="thumbnail">
+        <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+        <div class="caption-full">
+            <h4 class="pull-right">$<%= "#{@detail.price}"%></h4>
+            <h4><a href="#"><%= "#{@detail.name}"%></a>
+            </h4>
+            <p>
+            <%= "#{@detail.intro}"%>
+            </p>
+        </div>
+        <div class="ratings">
+            <p>1 reviews</p>
+        </div>
+    </div>
 
-<p>
-  <strong>Pic url:</strong>
-  <%= @deal.pic_url %>
-</p>
+    <div class="well">
 
-<p>
-  <strong>Effdate:</strong>
-  <%= @deal.effdate %>
-</p>
+        <div class="text-right">
+            <a class="btn btn-success">Leave a Review</a>
+        </div>
 
-<p>
-  <strong>Expdate:</strong>
-  <%= @deal.expdate %>
-</p>
+        <hr>
 
-<p>
-  <strong>Price:</strong>
-  <%= @deal.price %>
-</p>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                Anonymous
+                <span class="pull-right">10 days ago</span>
+                <p>To be done!!!!</p>
+            </div>
+        </div>
 
+        <hr>
 
-<p>
-  <strong>Label:</strong>
-  <%= @deal.label %>
-</p>
-
-<p>
-  <strong>Store:</strong>
-  <%= @deal.store %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @deal.link %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
-  <%= @deal.intro %>
-</p>
-
-<%= link_to 'Edit', edit_deal_path(@deal) %> |
-<%= link_to 'Back', deals_path %>
+    </div>
+</div>
