@@ -8,6 +8,7 @@ class DealsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get deals_url
     assert_response :success
+    assert_select "title", "Deals | MoneySaved"
   end
 
   test "should get new" do

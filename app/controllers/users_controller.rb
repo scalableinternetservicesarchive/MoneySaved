@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    
+    #debugger
   end
   
   def show
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)# 不是最终的实现方式
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to MoneySaved!"
       redirect_to @user
     else
       render 'new'
