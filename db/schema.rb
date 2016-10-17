@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014082336) do
+ActiveRecord::Schema.define(version: 20161017063114) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "deal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_comments_on_deal_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "deals", force: :cascade do |t|
@@ -30,6 +40,26 @@ ActiveRecord::Schema.define(version: 20161014082336) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float    "price"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "deal_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_likes_on_deal_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order_no"
+    t.string   "address"
+    t.string   "name"
+    t.integer  "count"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
