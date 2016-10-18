@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017063114) do
+ActiveRecord::Schema.define(version: 20161017172536) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20161017063114) do
     t.datetime "updated_at", null: false
     t.index ["deal_id"], name: "index_likes_on_deal_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index [nil, nil], name: "index_likes_on_deal_and_user", unique: true
+    t.index [nil], name: "index_likes_on_deal"
+    t.index [nil], name: "index_likes_on_user"
   end
 
   create_table "orders", force: :cascade do |t|
