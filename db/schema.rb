@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017172536) do
+ActiveRecord::Schema.define(version: 20161019233444) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -18,22 +18,22 @@ ActiveRecord::Schema.define(version: 20161017172536) do
     t.datetime "updated_at", null: false
   end
 
-    create_table "comments", force: :cascade do |t|
-      t.text     "content"
-      t.integer  "user_id"
-      t.integer  "deal_id"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.index ["deal_id"], name: "index_comments_on_deal_id"
-      t.index ["user_id"], name: "index_comments_on_user_id"
-    end
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "deal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_comments_on_deal_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "deals", force: :cascade do |t|
     t.string   "name"
     t.string   "pic_url"
     t.date     "effdate"
     t.date     "expdate"
-    t.string   "label"
+    t.integer  "label"
     t.string   "store"
     t.string   "link"
     t.string   "intro"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20161017172536) do
     t.string   "address"
     t.string   "name"
     t.integer  "count"
-   t.integer  "user_id"
-   t.datetime "created_at", null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

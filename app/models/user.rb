@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     attr_accessor :remember_token
+
+    has_many :likes
+    has_many :orders
     
   	before_save { email.downcase! }
     validates :name, presence: true, length: { maximum: 50 }
