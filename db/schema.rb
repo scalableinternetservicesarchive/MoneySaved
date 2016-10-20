@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019233444) do
+ActiveRecord::Schema.define(version: 20161020052226) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161019233444) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float    "price"
+    t.index ["label"], name: "index_deals_on_label"
   end
 
   create_table "likes", force: :cascade do |t|

@@ -2,7 +2,8 @@
                 <p class="lead">Category</p>
                 <div class="list-group">
                     <% @category.each do |c| %>
-                        <a href="#" class="list-group-item"><%= "#{c.name}"%></a>
+                    <%= link_to "#{c.name}", c, class: "list-group-item" %>
+                        
                     <% end %>
                 </div>
             </div>

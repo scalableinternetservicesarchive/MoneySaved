@@ -1,0 +1,29 @@
+
+				<div class="row">
+                    <% @deal.each do |d| %>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h4>
+                                        <%= link_to "#{d.name}", controller: "deals", action: "show", id: "#{d.id}"%>
+                                        </h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="pull-right">$<%= "#{d.price}" %></h4>
+                                    </div>
+                                </div>
+                                 
+                            </div>
+                            <div class="ratings">
+                                <p>15 reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
