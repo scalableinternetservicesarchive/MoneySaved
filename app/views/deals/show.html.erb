@@ -12,31 +12,53 @@
             <%= "#{@detail.intro}"%>
             </p>
         </div>
+        <div class="ratings_detail">
+            <p><%= "#{@comments.count}" %> reviews</p>
+        </div>
         <div class="ratings">
-            <p>1 reviews</p>
+            <p>1 reviews</p>   
         </div>
     </div>
 
     <div class="well">
 
-        <div class="text-right">
-            <a class="btn btn-success">Leave a Review</a>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget-area no-padding blank">
+                    <div class="status-upload">
+                        <form>
+                            <textarea placeholder="What do you think of the deal?" ></textarea>
+                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Leave a Review</button>
+                        </form>
+                    </div><!-- Status Upload  -->
+                </div><!-- Widget Area -->
+            </div>
         </div>
+
+
+
 
         <hr>
 
         <div class="row">
             <div class="col-md-12">
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                Anonymous
+                
+                <p style="font-size:20px">Anonymous</p>
                 <span class="pull-right">10 days ago</span>
                 <p>To be done!!!!</p>
             </div>
         </div>
+
+        <% @comments.each do |cm| %>
+        <div class="row">
+            <div class="col-md-12">
+                
+                <p style="font-size:20px">Anonymous</p>
+                <span class="pull-right"><%= "#{cm.created_at}" %></span>
+                <p><%= "#{cm.content}" %></p>
+            </div>
+        </div>
+        <% end %>
 
         <hr>
 

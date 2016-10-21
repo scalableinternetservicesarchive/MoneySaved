@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'likes/create'
+
+  get 'comments/create'
+
   get 'categories/show'
 
   get 'sessions/new'
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :categories, only: [:show]
-
+  resources :comments, only: [:create]
+  resources :likes, only: [:create]
   
 end

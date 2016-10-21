@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Category.create!(name: "sneakers")
+Category.create!(name: "clothes")
+Category.create!(name: "electronics")
+Category.create!(name: "makeup")
+Category.create!(name: "food")
+
+
 200.times do |n|
 	name = Faker::Commerce.product_name
 	effdate = 2015-10-15
