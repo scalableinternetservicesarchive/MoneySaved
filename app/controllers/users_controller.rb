@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:show]
+
   def new
     @user = User.new
     #debugger
@@ -18,7 +20,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
+
+  ########################################
+  #above is action
+  ########################################
   # 如果指定的令牌和摘要匹配，返回 true
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
@@ -28,7 +34,21 @@ class UsersController < ApplicationController
   def forget
     update_attribute(:remember_digest, nil)
   end
-  
+
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
 
   private
   
