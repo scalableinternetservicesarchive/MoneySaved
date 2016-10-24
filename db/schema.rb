@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161024005447) do
     t.string   "store"
     t.string   "link"
     t.string   "intro"
+    t.boolean  "likes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float    "price"
