@@ -1,6 +1,8 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
 	padding-top: 0px;
@@ -64,30 +66,30 @@ h1 { font-size: 3em;
 
 //seachBox
 .quick-search-form .form-control {
-height: 35px;
-padding: 8px 15px;
-color: #a4a4a4;   /* change  color of text to be typed inside search box */
-font-size: 13px;
-line-height: 20px;
-background-color: transparent;
-border: 1px solid #ccc;
-border-radius: 0!important;
--webkit-box-shadow: none;
-box-shadow: none;
+  height: 35px;
+  padding: 8px 15px;
+  color: #a4a4a4;   /* change  color of text to be typed inside search box */
+  font-size: 13px;
+  line-height: 20px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0!important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 
 
 .btn-custom {           
-background-color: #7bae23;   /* change  button color */
-border-radius: 0!important;    /* button border radius */
-padding: 6px 10px;              /* Button size change*/
+  background-color: #7bae23;   /* change  button color */
+  border-radius: 0!important;    /* button border radius */
+  padding: 6px 10px;              /* Button size change*/
 
 }
 
 .btn-custom:hover{
-background-color:#9AC94B; /* change  button color on hover */
-border-radius: 0!important;
+  background-color:#9AC94B; /* change  button color on hover */
+  border-radius: 0!important;
 
 }
 

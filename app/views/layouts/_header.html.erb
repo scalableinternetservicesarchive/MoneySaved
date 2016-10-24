@@ -36,14 +36,15 @@
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", root_path %> <span class="sr-only">(current)</span></li>
         <li><%= link_to "Ranking",deals_path %></li>
-        
       </ul>
-      <form class="navbar-form navbar-left">
+
+      <form class="navbar-form navbar-left quick-search-form" role="form" action="#">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" id="quick-search" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
         
         <% if logged_in? %>
@@ -74,10 +75,7 @@
             </li>
             <% end %>  
           </ul>
-          </li>
-          
-        
-          
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
