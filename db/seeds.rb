@@ -7,6 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.create!(name: "tt1", 
+			email: "test1@test.com", 
+			password: "123456", 
+			password_confirmation: "123456")
+
+User.create!(name: "tt2", 
+			email: "test2@test.com", 
+			password: "123456", 
+			password_confirmation: "123456")
+
+User.create!(name: "tt3", 
+			email: "test3@test.com", 
+			password: "123456", 
+			password_confirmation: "123456")
+
+
 Category.create!(name: "sneakers")
 Category.create!(name: "clothes")
 Category.create!(name: "electronics")

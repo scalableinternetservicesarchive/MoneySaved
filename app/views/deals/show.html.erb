@@ -16,7 +16,7 @@
             <p><%= "#{@comments.count}" %> reviews</p>
         </div>
         <div class="ratings">
-            <p>1 reviews</p>   
+            <p>1 like</p>   
         </div>
     </div>
 
@@ -26,10 +26,15 @@
             <div class="col-md-12">
                 <div class="widget-area no-padding blank">
                     <div class="status-upload">
-                        <form>
-                            <textarea placeholder="What do you think of the deal?" ></textarea>
-                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Leave a Review</button>
-                        </form>
+                        <%= form_for(@newcomment) do |f| %> 
+                            <%= render 'shared/error_messages', object: f.object %> 
+                            <div class="field">
+                            <%= f.text_area :content, placeholder: "What do you think of the deal?" %> 
+                            </div> 
+                            <%= f.hidden_field :deal_id, value: @detail.id %>
+                            <%= f.button("Leave a Review",{class: "btn btn-success green"})%> 
+                        <% end %>
+
                     </div><!-- Status Upload  -->
                 </div><!-- Widget Area -->
             </div>
