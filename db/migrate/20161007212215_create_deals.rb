@@ -9,6 +9,8 @@ class CreateDeals < ActiveRecord::Migration[5.0]
       t.string :store
       t.string :link
       t.string :intro
+      
+      t.boolean :likes
 
       t.timestamps
     end
