@@ -32,9 +32,10 @@ class UsersController < ApplicationController
       # 处理更新成功的情况
         flash[:success] = "Profile updated"
         redirect_to @user
-    else
-      render 'edit'
-    end
+
+      else
+        render 'edit'
+      end
   end
 
   ########################################
