@@ -12,6 +12,7 @@ class DealsController < ApplicationController
   def show
     @category = Category.all
     @detail = Deal.find(params[:id])
+    @newcomment = Comment.new
     @comments = Comment.where("deal_id = ?",params[:id]).paginate(:page => params[:page], :per_page => 20)
   end
 
