@@ -45,20 +45,11 @@
 
         <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                
-                <p style="font-size:20px">Anonymous</p>
-                <span class="pull-right">10 days ago</span>
-                <p>To be done!!!!</p>
-            </div>
-        </div>
-
         <% @comments.each do |cm| %>
         <div class="row">
             <div class="col-md-12">
                 
-                <p style="font-size:20px">Anonymous</p>
+                <p style="font-size:20px"><%= "#{cm.user.name}" %></p>
                 <span class="pull-right"><%= "#{cm.created_at}" %></span>
                 <p><%= "#{cm.content}" %></p>
             </div>
