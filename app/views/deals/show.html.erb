@@ -12,12 +12,30 @@
             <%= "#{@detail.intro}"%>
             </p>
         </div>
-        <div class="ratings_detail">
-            <p><%= "#{@comments.count}" %> reviews</p>
+        <div class="row">
+        <div class="col-md-9">
+            <div class="ratings_detail">
+                <p><%= "#{@comments.count}" %> reviews</p>
+            </div>
+            <div class="ratings">
+                <p><%= "#{@detail.liked.count}" %> like</p>
+            </div>
         </div>
-        <div class="ratings">
-            <p>1 like</p>   
+        <div class="col-md-3">
+            <div>
+            <% if logged_in? %>
+                <% if current_user.likes.include?(@detail.id)%>
+                    <%= render 'shared/unlike' %>
+                <% else %>
+                    <%= render 'shared/like' %>
+                    <%= "#{current_user.likes.first.deal_id}" %>
+                <% end %>
+            <% end %>
+            </div>
         </div>
+        </div>
+
+        
     </div>
 
     <div class="well">
@@ -27,9 +45,10 @@
                 <div class="widget-area no-padding blank">
                     <div class="status-upload">
                         <%= form_for(@newcomment) do |f| %> 
-                            <%= render 'shared/error_messages', object: f.object %> 
+                            
+                            <%= render 'shared/error_messages', object: f.object %>
                             <div class="field">
-                            <%= f.text_area :content, placeholder: "What do you think of the deal?" %> 
+                            <%= f.text_area :content, placeholder: "What do you think of the deal?" , class: 'form-control'%> 
                             </div> 
                             <%= f.hidden_field :deal_id, value: @detail.id %>
                             <%= f.button("Leave a Review",{class: "btn btn-success green"})%> 
@@ -48,7 +67,6 @@
         <% @comments.each do |cm| %>
         <div class="row">
             <div class="col-md-12">
-                
                 <p style="font-size:20px"><%= "#{cm.user.name}" %></p>
                 <span class="pull-right"><%= "#{cm.created_at}" %></span>
                 <p><%= "#{cm.content}" %></p>

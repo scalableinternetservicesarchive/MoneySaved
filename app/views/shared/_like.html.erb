@@ -1,0 +1,4 @@
+<%= form_for(@like) do |f| %> 
+    <%= f.hidden_field :deal_id, value: @detail.id %>
+    <%= f.button("",{class: "btn btn-default green glyphicon glyphicon-heart-empty"})%> 
+<% end %>

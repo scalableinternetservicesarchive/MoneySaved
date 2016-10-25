@@ -3,6 +3,9 @@ class Deal < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :orders
 
+	has_many :reviews, through: :comments, source: :deal
+	has_many :liked, through: :likes, source: :deal
+
 	validates :name, presence: true
 	validates :label, presence: true
 	validates :link, presence: true
