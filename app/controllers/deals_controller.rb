@@ -12,7 +12,7 @@ class DealsController < ApplicationController
   def show
     @category = Category.all
     @detail = Deal.find(params[:id])
-    @newcomment = Comment.new
+    @newcomment = current_user.comments.build if logged_in?
     @comments = Comment.where("deal_id = ?",params[:id]).paginate(:page => params[:page], :per_page => 20)
   end
 
@@ -29,7 +29,6 @@ class DealsController < ApplicationController
   # POST /deals.json
   def create
     @deal = Deal.new(deal_params)
-
     respond_to do |format|
       if @deal.save
         format.html { redirect_to @deal, notice: 'Deal was successfully created.' }

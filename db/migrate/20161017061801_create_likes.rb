@@ -4,11 +4,6 @@ class CreateLikes < ActiveRecord::Migration[5.0]
       
       t.references :deal, foreign_key: true
       t.references :user, foreign_key: true
-      
-      #add_index :likes, :deal
-      #add_index :likes, :user
-      #add_index :likes, [:deal, :user], unique: true
-
       t.timestamps
     end
   end
