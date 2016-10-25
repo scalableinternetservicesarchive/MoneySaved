@@ -24,11 +24,10 @@
         <div class="col-md-3">
             <div>
             <% if logged_in? %>
-                <% if current_user.likes.include?(@detail.id)%>
+                <% if current_user.likes.find_by(deal_id: @detail.id) != nil%>
                     <%= render 'shared/unlike' %>
                 <% else %>
                     <%= render 'shared/like' %>
-                    <%= "#{current_user.likes.first.deal_id}" %>
                 <% end %>
             <% end %>
             </div>

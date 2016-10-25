@@ -32,8 +32,8 @@ Category.create!(name: "food")
 
 200.times do |n|
 	name = Faker::Commerce.product_name
-	effdate = 2015-10-15
-	expdate = 2016-12-15
+	effdate = "2015-10-15"
+	expdate = "2016-12-15"
 	label = Faker::Number.between(1, 5)
 	store = Faker::Company.name
 	link = Faker::Internet.url
