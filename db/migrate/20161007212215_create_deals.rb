@@ -5,7 +5,7 @@ class CreateDeals < ActiveRecord::Migration[5.0]
       t.string :pic_url
       t.date :effdate
       t.date :expdate
-      t.string :label
+      t.integer :label
       t.string :store
       t.string :link
       t.string :intro
