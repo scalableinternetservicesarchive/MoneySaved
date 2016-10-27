@@ -5,8 +5,9 @@ class CommentsController < ApplicationController
   		@comments = current_user.comments.build(comments_params)
   		if @comments.save
         flash[:success] = "Welcome to MoneySaved!"
-        redirect_to request.referrer || root_url
+        
       end
+      redirect_to request.referrer || root_url
   	end
 
 
