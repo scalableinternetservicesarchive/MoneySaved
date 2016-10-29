@@ -1,4 +1,4 @@
- 
+ <% provide(:title, 'All users') %>
       <%= render 'layouts/admin_nav'%>
  
     <div id="wrapper">
@@ -9,14 +9,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">All Users</h1>
+                        <%= will_paginate %>
                         <ul class="users">
-                            <% @users.each do |user| %>
-                            <li>
-                            <%= gravatar_for user, size: 50 %>
-                            <%= link_to user.name, user %>
-                            </li>
-                            <% end %>
-                            </ul>
+                            <%= render @users %>
+                        </ul>
+                        <%= will_paginate %>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
