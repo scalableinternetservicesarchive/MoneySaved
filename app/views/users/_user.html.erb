@@ -3,6 +3,7 @@
 	<%= gravatar_for user%>
 	<%= link_to user.name, user %>
 	<% if current_user.admin? && !current_user?(user) %>
-	|	<%= link_to "delete", user, method: :delete, data: { confirm: "			You sure?" } %>
+	|	<%= link_to "delete", user, method: :delete, data: { confirm: "			You sure to delete #{user.name}?" } %>
+	|	<%= link_to "block", user, method: :get, data: { confirm: "			You sure to block #{user.name}?" } %>
 	<% end %>
 </li>

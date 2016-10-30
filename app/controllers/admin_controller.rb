@@ -10,8 +10,5 @@ class AdminController < ApplicationController
   def usersindex
   	@users = User.paginate :page => params[:page],:per_page => 15
   end
-
-  def dealsindex
-  	@deals = Deal.paginate :page => params[:page],:per_page => 20
-  end
+   
 end

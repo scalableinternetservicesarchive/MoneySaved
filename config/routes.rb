@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'admin/usersindex'
-  get 'admin/dealsindex'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#home'
 
@@ -20,6 +17,12 @@ Rails.application.routes.draw do
   get 'categories/show'
   get 'comments/create'
   get 'likes/create'
+  
+   #admin section
+  get '/users', to: 'admin#usersindex'  
+  get "users/:id" => 'users#block'
+  
+
   #resources
   resources :admin
   resources :users

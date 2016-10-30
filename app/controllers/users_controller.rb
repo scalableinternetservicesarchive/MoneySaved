@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :admin_user, only: [:index, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :destroy, :block]
+
   def new
     @user = User.new
     #debugger
@@ -44,7 +45,13 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       user.destroy
       flash[:success] = "#{user.name} has been successfully deleted"
-      redirect_to admin_usersindex_url
+      redirect_to allusers_path
+  end
+  def block
+      user = User.find(params[:id])
+      user.update_attribute(:blocked, true)
+      flash[:success] = "#{user.name} has been successfully blocked" 
+    redirect_to allusers_path
   end
   ########################################
   #above is action
