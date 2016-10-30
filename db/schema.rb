@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025232853) do
+ActiveRecord::Schema.define(version: 20161030003506) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -67,12 +67,13 @@ ActiveRecord::Schema.define(version: 20161025232853) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.integer  "like_id"
-    t.integer  "order_id"
+    t.integer  "user_id"
+    t.integer  "deal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["like_id"], name: "index_recommendations_on_like_id"
-    t.index ["order_id"], name: "index_recommendations_on_order_id"
+    t.index ["deal_id"], name: "index_recommendations_on_deal_id"
+    t.index ["user_id", "deal_id"], name: "index_recommendations_on_user_id_and_deal_id", unique: true
+    t.index ["user_id"], name: "index_recommendations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
