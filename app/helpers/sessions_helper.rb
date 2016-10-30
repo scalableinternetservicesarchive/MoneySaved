@@ -19,7 +19,7 @@ module SessionsHelper
   
   # 如果用户已登录，返回 true，否则返回 false
   def logged_in?
-   !current_user.nil?
+    !current_user.nil?
   end
   
   def remember(user)

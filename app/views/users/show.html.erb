@@ -9,3 +9,13 @@
     </section>
   </aside>
 </div>
+
+<% @user ||= current_user %>
+<div class="stats">
+	<a href="<%= likedDeals_user_path(@user) %>">
+		<strong id="likes" class="stat">
+			<%= @user.likedDeals.count %>
+		</strong>
+	likedDeals
+	</a>
+</div>

@@ -38,18 +38,27 @@ class UsersController < ApplicationController
       end
   end
 
-  ########################################
-  #above is action
-  ########################################
-  # 如果指定的令牌和摘要匹配，返回 true
-  def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def likedDeals
+    @title = "likedDeals"
+    @user = User.find(params[:id])
+    @deals = @user.likedDeals
+    @details = @deals.all
+    render 'show_likedDeals'
   end
-  
-  # 忘记用户
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
+
+
+    ########################################
+    #above is action
+    ########################################
+    # 如果指定的令牌和摘要匹配，返回 true
+    def authenticated?(remember_token)
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+    
+    # 忘记用户
+    def forget
+      update_attribute(:remember_digest, nil)
+    end
 
   private
   

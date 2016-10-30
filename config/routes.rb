@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get 'comments/create'
   get 'likes/create'
   #resources
-  resources :users
+  resources :users do
+    member do
+      get :likedDeals
+    end
+  end
 
   resources :deals
 
