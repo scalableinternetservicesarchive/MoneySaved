@@ -9,25 +9,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Dashboard</h1>
-                        <li>
-                            123 deals
-                        </li>
-                        
-                        <li>
-                            123 users
-                        </li>
-
-                        <li>
-                            Top ten popular deals
-                        </li>
-
-                        <li>
-                            Top ten best sellers
-                        </li>
-                        <ul class="users">
-                            
-                        </ul>
-                        
+                       <%= render 'admin/stats'%>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <%= render 'admin/chart'%>
+                             </div>
+                                <%= render 'admin/notification'%>
+                           
+                        </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
