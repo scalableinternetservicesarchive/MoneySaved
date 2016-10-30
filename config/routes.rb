@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #resources
   resources :users do
     member do
-      get :likedDeals
+      get :likedDeals, :recommendedDeals
     end
   end
 
@@ -32,4 +32,6 @@ Rails.application.routes.draw do
 
   resources :likes, only: [:create, :destroy]
   
+  resources :recommendations
+
 end

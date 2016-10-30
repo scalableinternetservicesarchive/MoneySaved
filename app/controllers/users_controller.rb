@@ -32,7 +32,6 @@ class UsersController < ApplicationController
       # 处理更新成功的情况
         flash[:success] = "Profile updated"
         redirect_to @user
-
       else
         render 'edit'
       end
@@ -42,10 +41,15 @@ class UsersController < ApplicationController
     @title = "likedDeals"
     @user = User.find(params[:id])
     @deals = @user.likedDeals
-    @details = @deals.all
     render 'show_likedDeals'
   end
 
+  def recommendedDeals
+    @title = "recommendations"
+    @user = User.find(params[:id])
+    @deals = @user.recommendedDeals
+    render 'show_recommendations'
+  end
 
     ########################################
     #above is action

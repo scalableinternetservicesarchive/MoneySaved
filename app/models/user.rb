@@ -4,9 +4,12 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :orders, dependent: :destroy
+    has_many :recommendations, dependent:   :destroy
 
     has_many :likedDeals, through: :likes, source: :deal
     has_many :paidDeals, through: :orders, source: :user
+    has_many :recommendedDeals, through: :recommendations, source: :deal
+    
 
     
   	before_save { email.downcase! }

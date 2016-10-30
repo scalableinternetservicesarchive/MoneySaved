@@ -14,8 +14,14 @@
 <div class="stats">
 	<a href="<%= likedDeals_user_path(@user) %>">
 		<strong id="likes" class="stat">
-			<%= @user.likedDeals.count %>
+			likedDeals <%= @user.likedDeals.count %>
 		</strong>
-	likedDeals
 	</a>
+</div>
+<div class="stats">
+  <a href="<%= recommendedDeals_user_path(@user) %>">
+    <strong id="likes" class="stat">
+      See what you may like<% @user.recommendedDeals.count%>
+    </strong>
+  </a>
 </div>
