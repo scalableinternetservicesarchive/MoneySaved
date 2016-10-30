@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   get 'likes/create'
   
    #admin section
-  get '/users', to: 'admin#usersindex'  
-  get "users/:id" => 'users#block'
+  get '/allusers', to: 'admin#usersindex'  
+  get 'users/block/:id' => 'users#block'
   
 
   #resources
