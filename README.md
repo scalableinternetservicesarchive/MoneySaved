@@ -15,4 +15,5 @@ Chutian Shen
 
 Qiufeng Zhu
 
-<img src=https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAl4AAAAJDc1ZGEyMzk2LWYzZTItNDI3Mi1hM2Q0LTA0NjExNjZiNTRmZA.jpg title="zhongqi yi" height="150" />
+
+<img src=https://media.licdn.com/media/AAEAAQAAAAAAAAdFAAAAJDZkNzAyNGFlLThiMDktNDI0Yi1iYTI3LTMwNGFhZDMyNDE0MA.jpg title="Qiufeng ZHu" height="150" />
