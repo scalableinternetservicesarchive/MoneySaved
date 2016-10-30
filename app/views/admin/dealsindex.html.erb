@@ -1,6 +1,5 @@
- <% provide(:title, 'All users') %>
-      <%= render 'layouts/admin_nav'%>
- 
+ <% provide(:title, 'ALl Deals') %>
+      <%= render 'admin/admin_nav'%>
     <div id="wrapper">
 
         <!-- Page Content -->
@@ -8,12 +7,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">All Users</h1>
-                        <%= will_paginate %>
+                        <h1 class="page-header">All Deals</h1>
+                        
                         <ul class="users">
-                            <%= render @users %>
+                            <%= will_paginate @deals%>
+                            	<% @deals.each do |deal| %>
+								<%= render deal %>
+								<% end %>
+                            <%= will_paginate @deals%>
                         </ul>
-                        <%= will_paginate %>
+                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
