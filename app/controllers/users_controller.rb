@@ -49,8 +49,7 @@ class UsersController < ApplicationController
   end
   def block 
       user = User.find(params[:id])
-      if user.id == 1
-        flash[:success] = "#{user.name} is admin"
+      if user.id == 1 
         redirect_to user_path
       else
         if user.blocked
