@@ -1,17 +1,11 @@
-
 <li>
-	<%= gravatar_for user%>
-	<%= link_to user.name, user %>
+	<%= link_to user.name, user, style: "font-size:25px;"%>
 	<% if current_user.admin? && !current_user?(user) %>
-	|	<%= link_to "delete", user, method: :delete, data: { confirm: "			You sure to delete #{user.name}?" } %>
-	|	<% if user.blocked %>
-			<%= link_to "unblock", :controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "			You sure to block #{user.name}?" } %>
+		<%= link_to "delete", user, method: :delete, data: { confirm: "			You sure to delete #{user.name}?" }, style: "text-align:right;" %>
+		<% if user.blocked %>
+			<%= link_to "unblock", :controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "You sure to block #{user.name}?" }, style: "text-align:right;" %>
 		<% else %>
-         	<%= link_to "block",:controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "			You sure to unblock #{user.name}?" } %>
+         	<%= link_to "block",:controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "You sure to unblock #{user.name}?" }, style: "text-align:right;" %>
 	 	<% end %>
-	<% end %>
-
-                    
-                
-               
+	<% end %>                         
 </li>

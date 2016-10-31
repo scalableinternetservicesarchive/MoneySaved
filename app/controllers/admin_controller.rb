@@ -8,7 +8,7 @@ class AdminController < ApplicationController
   	
   end
   def usersindex
-  	@users = User.paginate :page => params[:page],:per_page => 15
+  	@users = User.paginate(:page => params[:page],:per_page => 30)
   end
    
 end
