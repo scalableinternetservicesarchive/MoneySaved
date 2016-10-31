@@ -16,4 +16,4 @@ Chutian Shen
 Qiufeng Zhu
 
 
-<img src=https://media.licdn.com/media/AAEAAQAAAAAAAAdFAAAAJDZkNzAyNGFlLThiMDktNDI0Yi1iYTI3LTMwNGFhZDMyNDE0MA.jpg title="Qiufeng ZHu" height="150" />
+<img src=https://media.licdn.com/media/AAEAAQAAAAAAAAdFAAAAJDZkNzAyNGFlLThiMDktNDI0Yi1iYTI3LTMwNGFhZDMyNDE0MA.jpg title="Qiufeng Zhu" height="150" />
