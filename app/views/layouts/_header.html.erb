@@ -50,7 +50,7 @@
         <% if logged_in? %>
           <li><%= link_to "#{current_user.name}", current_user %></li>
         <% else %>
-          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Sign up", new_user_path %></li>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
 

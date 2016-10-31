@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'orders/create'
+
+  get 'orders/show'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#home'
-
-  get '/signup', to: 'users#new'
-  get 'users/new'
 
   #Login
   get 'sessions/new'
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
 
   resources :likes, only: [:create, :destroy]
+
+  resources :orders, only: [:create, :show, :new]
   
 end
