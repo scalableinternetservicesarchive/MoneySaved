@@ -18,7 +18,14 @@ Rails.application.routes.draw do
   get 'categories/show'
   get 'comments/create'
   get 'likes/create'
+  
+   #admin section
+  get '/allusers', to: 'admin#usersindex'  
+  get 'users/block/:id' => 'users#block'
+  
+
   #resources
+  resources :admin
   resources :users
 
   resources :deals
