@@ -48,7 +48,10 @@
       <ul class="nav navbar-nav navbar-right">
         
         <% if logged_in? %>
-          <li><%= link_to "#{current_user.name}", current_user %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "DashBoard", '/admin' %></li>
+          <%end%>
+          <li><%= link_to "#{current_user.name}", current_user %></li> 
         <% else %>
           <li><%= link_to "Sign up", signup_path %></li>
           <li><%= link_to "Log in", login_path %></li>
