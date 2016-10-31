@@ -1,0 +1,4 @@
+<%= form_for(current_user.orders.build) do |f| %> 
+    <%= f.hidden_field :deal_id, value: @detail.id %>
+    <%= f.button("Order",{class: "btn btn-default green "})%> 
+<% end %>
