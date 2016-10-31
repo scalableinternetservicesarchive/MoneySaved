@@ -11,7 +11,7 @@ For overseas buyers, they can order online and use the address of a warehouse in
 
 Chutian Shen
 
-<img src=https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAbLAAAAJDQ4YmFmZjI1LTZmZmEtNDMyNi1iZGQ1LTZjNWRlOGUzOTg5MA.jpg title="Chutian Shen" height="150" />
+<img src=https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAfDAAAAJGU0YjkyYWJkLTcxOWMtNDI3Ni04ZjY0LTg1NjJiOWVhNDYyZQ.jpg title="Chutian Shen" height="150" />
 
 Qiufeng Zhu
 
