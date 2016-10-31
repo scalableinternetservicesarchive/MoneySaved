@@ -3,9 +3,9 @@
 	<% if current_user.admin? && !current_user?(user) %>
 		<%= link_to "delete", user, method: :delete, data: { confirm: "			You sure to delete #{user.name}?" }, style: "text-align:right;" %>
 		<% if user.blocked %>
-			<%= link_to "unblock", :controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "You sure to block #{user.name}?" }, style: "text-align:right;" %>
+			<%= link_to "unblock", block_path(id: user.id), method: :post, data: { confirm: "You sure to block #{user.name}?" }, style: "text-align:right;" %>
 		<% else %>
-         	<%= link_to "block",:controller => "users", :action => "block", :id => user, method: :get, data: { confirm: "You sure to unblock #{user.name}?" }, style: "text-align:right;" %>
+         	<%= link_to "block",block_path(id: user.id), method: :post, data: { confirm: "You sure to unblock #{user.name}?" }, style: "text-align:right;" %>
 	 	<% end %>
 	<% end %>                         
 </li>

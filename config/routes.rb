@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
    #admin section
   get '/allusers', to: 'admin#usersindex'  
-  get 'users/block/:id' => 'users#block'
+  post '/block' => 'users#block'
   
 
   #resources
