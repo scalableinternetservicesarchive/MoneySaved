@@ -2,6 +2,7 @@
 <% provide(:title, "Deals")%>
 <h1>Deals</h1>
 
+<%= will_paginate @deal %>
 <table>
   <thead>
     <tr>
@@ -13,7 +14,6 @@
       <th>Label</th>
       <th>Store</th>
       <th>Link</th>
-      <th>Intro</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,15 +29,15 @@
         <td><%= deal.label %></td>
         <td><%= deal.store %></td>
         <td><%= deal.link %></td>
-        <td><%= deal.intro %></td>
-        <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+
+        <td><%= link_to 'Show ', deal %></td>
+        <td><%= link_to 'Edit ', edit_deal_path(deal) %></td>
         <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @deal %>
 <br>
 
 <%= link_to 'New Deal', new_deal_path %>

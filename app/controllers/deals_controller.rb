@@ -4,7 +4,7 @@ class DealsController < ApplicationController
   # GET /deals
   # GET /deals.json
   def index
-    @deals = Deal.all
+    @deals = Deal.all.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /deals/1
