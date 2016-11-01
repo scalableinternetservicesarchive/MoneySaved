@@ -13,6 +13,15 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @like = Like.where("user_id = ?",params[:id])
+    @order = Order.where("user_id = ?",params[:id])
+    
+    list_like = []
+    @like.each do |l|
+      list_like.push(l.deal_id)
+    end
+    @user_like = Deal.where(:id => list_like)
+
   end
   
   def create

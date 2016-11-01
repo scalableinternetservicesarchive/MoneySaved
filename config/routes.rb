@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   root 'home#home'
 
   #Login
-  get 'sessions/new'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   
    #admin section
   get '/allusers', to: 'admin#usersindex'  
-  post '/block' => 'users#block'
+  post '/block', to: 'users#block'
   
 
   #resources
