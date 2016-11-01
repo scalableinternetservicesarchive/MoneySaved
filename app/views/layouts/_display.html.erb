@@ -1,6 +1,7 @@
 <div class="row">
     <% @deal.each do |d| %>
         <div class="col-sm-4 col-lg-4 col-md-4">
+            
             <div class="thumbnail">
                 <img src="http://placehold.it/320x150" alt="">
                 <div class="caption">
@@ -29,7 +30,6 @@
                 </div>
 
                 <div class="row">
-                
                     <div class="col-md-6">
                         <div class="ratings">
                             <p><%= "#{d.reviews.count}" %> reviews</p>
@@ -41,10 +41,10 @@
                             <p><%= "#{d.likes.count}" %> likes</p>
                         </div>
                     </div>
-
                 </div>
-
+                
             </div>
+        
         </div>
     <% end %>
 </div>

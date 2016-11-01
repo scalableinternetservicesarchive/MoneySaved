@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+  before_action :not_logged_in_user, only: [:new, :create]
   def new
   end
   
@@ -21,4 +21,12 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
   
+  private
+
+    def not_logged_in_user
+      if current_user != nil
+          redirect_to current_user
+        end
+    end
+
 end

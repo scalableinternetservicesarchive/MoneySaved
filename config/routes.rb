@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#home'
 
+  get 'home/contact_info'
+
   #Login
 
   get '/login', to: 'sessions#new'
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
    #admin section
   get '/allusers', to: 'admin#usersindex'  
   post '/block', to: 'users#block'
+
+  get '/userlike', to: 'users#user_like_list'
+  get '/userorder', to: 'users#user_order_list'
   
 
   #resources

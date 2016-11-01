@@ -1,2 +1,6 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h1>Orders Detail</h1>
+<p style="text-align: center;">Origin Order#: <%= @order.order_no %></p>
+<p style="text-align: center;">Transfer Address: <%= @order.address %></p>
+<p style="text-align: center;">Receiver Name: <%= @order.name %></p>
+<p style="text-align: center;">Items: <%= @order.count %></p>
+<%= link_to "back", request.referrer, style: "margin-right: 50%;margin-left: 50%;" %>

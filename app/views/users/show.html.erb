@@ -11,46 +11,44 @@
 </div>
 
 <div class="row">
-
-  <aside class="col-md-4">
+  <aside class="col-md-2">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
+      <h1 style="text-align: center;">
         Your LIKES:
       </h1>
     </section>
   </aside>
+  </div>
 
+<div class="row">
   <aside class="col-md-8">
-    <section class="user_info">
-      <% @user_like.each do |ud| %>
-      <h1>
-        <%= ud.name %>
-      </h1>
-      <% end %>
-    </section>
+    <ul class="users"> 
+      <% @user_like.each do |ul| %> 
+        <li> <%= link_to ul.name, ul %> <p class="pull-right"><%= "Expire at #{ul.expdate}"%></p></li> 
+      <% end %> 
+      <li class="pull-right"> <%= link_to "more..", userlike_path %></li> 
+    </ul>
   </aside>
 </div>
 
+
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-2">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
+      <h1 style="text-align: center;">
         Your ORDERS:
       </h1>
     </section>
   </aside>
+  </div>
 
+<div class="row">
  <aside class="col-md-8">
-    <section class="user_info">
-      <% @order.each do |o| %>
-      <h1>
-        <%= o.deal_id %>
-        <%= o.order_no %>
-      </h1>
-      <% end %>
-    </section>
+    <ul class="users"> 
+      <% @order.each do |o| %> 
+        <li> <%= link_to o.name, o %> <p class="pull-right"><%= "Origin Order# is #{o.order_no}"%></p></li> 
+      <% end %> 
+      <li class="pull-right"> <%= link_to "more..", userorder_path %></li> 
+    </ul>
   </aside>
-
 </div>
