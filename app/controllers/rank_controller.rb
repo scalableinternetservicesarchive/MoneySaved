@@ -1,6 +1,6 @@
 class RankController < ApplicationController
   def show
-  	@like = Like.group(:deal_id).count
+  	@like = Like.group(:deal_id).unscope(:order).count
   	@like.sort_by {|_key, value| value}
   	deal_list = @like.keys.reverse
 
