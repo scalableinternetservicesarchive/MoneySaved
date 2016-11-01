@@ -35,15 +35,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", root_path %> <span class="sr-only">(current)</span></li>
-        <li><%= link_to "Ranking",deals_path %></li>
+        <li><%= link_to "Ranking",rank_show_path %></li>
       </ul>
 
-      <form class="navbar-form navbar-left quick-search-form" role="form" action="#">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" id="quick-search" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
-      </form>
+      <%= form_tag(search_show_path, method: "get", class: "navbar-form navbar-left quick-search-form") do %> 
+          <div class="form-group">
+            <%= text_field_tag "text", nil, class: "form-control", placeholder: "Search"  %>
+          </div>
+          <%= button_tag(type: "submit", id: "quick-search", class: "btn btn-custom") do %> 
+            <span class="glyphicon glyphicon-search custom-glyph-color"></span>
+          <% end %>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
         

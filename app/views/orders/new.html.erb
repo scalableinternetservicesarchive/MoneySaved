@@ -25,8 +25,7 @@
         <%= f.text_field :count, class: 'form-control', placeholder: "How many items?" %>
         </div>
 
-        <%= f.hidden_field :deal_id, value: "#{params[:category][:deal_id]}" %> 
-        <!-- {params[:category][:deal_id]} is because in button to the new order page, form_for requires an object, use category just because category does not have a create action-->
+        <%= f.hidden_field :deal_id, value: "#{params[:deal_id]}" %> 
 
         <%= f.hidden_field :user_id, value: current_user.id %>
 

@@ -13,27 +13,28 @@
             </p>
         </div>
         <div class="row">
-        <div class="col-md-9">
-            <div class="ratings_detail">
-                <p><%= "#{@comments.count}" %> reviews</p>
+            <div class="col-md-9">
+                <div class="ratings_detail">
+                    <p><%= "#{@comments.count}" %> reviews</p>
+                </div>
+                <div class="ratings">
+                    <p><%= "#{@detail.liked.count}" %> like</p>
+                </div>
             </div>
-            <div class="ratings">
-                <p><%= "#{@detail.liked.count}" %> like</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div>
-            <% if logged_in? %>
-                <%= render 'shared/order' %>
-                <% if current_user.likes.find_by(deal_id: @detail.id) != nil%>
-                    <%= render 'shared/unlike' %>
-                <% else %>
-                    <%= render 'shared/like' %>
-                <% end %>
 
-            <% end %>
+            <div class="col-md-3">
+                <div>
+                <% if logged_in? %>
+                    <%= render 'shared/order' %>
+                    <% if current_user.likes.find_by(deal_id: @detail.id) != nil%>
+                        <%= render 'shared/unlike' %>
+                    <% else %>
+                        <%= render 'shared/like' %>
+                    <% end %>
+
+                <% end %>
+                </div>
             </div>
-        </div>
         </div>
 
         
