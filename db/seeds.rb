@@ -55,7 +55,7 @@ Category.create!(name: "food")
 		)
 end
 
-400.times do
+4000.times do
 	user = Faker::Number.between(1, 1000)
 	deal = Faker::Number.between(1, 2000)
 	Like.create!(user_id: user,
