@@ -5,32 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.create!(name: "admin", 
-			email: "admin@test.com", 
-			password: "123456", 
-			password_confirmation: "123456",
-			admin: true)
-
-User.create!(name: "tt1", 
-			email: "test1@test.com", 
-			password: "123456", 
-			password_confirmation: "123456")
-
-User.create!(name: "tt2", 
-			email: "test2@test.com", 
-			password: "123456", 
-			password_confirmation: "123456")
-
-User.create!(name: "tt3", 
-			email: "test3@test.com", 
-			password: "123456", 
-			password_confirmation: "123456")
-
-199.times do |n|
+10.times do |n|
 	name = Faker::Name.name
-	email = "example-#{n+1}@test.org"
-	password = "password"
+	email = "admin#{n+1}@test.com"
+	password = "123456"
+		User.create!(name: name,
+			email: email,
+			password:password,
+			password_confirmation: password,
+			admin: true)
+end
+
+
+1000.times do |n|
+	name = Faker::Name.name
+	email = "test#{n+1}@test.com"
+	password = "123456"
 		User.create!(name: name,
 			email: email,
 			password:password,
@@ -44,10 +34,10 @@ Category.create!(name: "makeup")
 Category.create!(name: "food")
 
 
-200.times do |n|
+2000.times do |n|
 	name = Faker::Commerce.product_name
-	effdate = "2015-10-15"
-	expdate = "2016-12-15"
+	effdate = Faker::Date.between(40.days.ago, Date.today)
+	expdate = Faker::Date.forward(40)
 	label = Faker::Number.between(1, 5)
 	store = Faker::Company.name
 	link = Faker::Internet.url
@@ -64,3 +54,13 @@ Category.create!(name: "food")
 				 price: price
 		)
 end
+
+400.times do
+	user = Faker::Number.between(1, 1000)
+	deal = Faker::Number.between(1, 2000)
+	Like.create!(user_id: user,
+				 deal_id: deal
+		)
+end
+
+

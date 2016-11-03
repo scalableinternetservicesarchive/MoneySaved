@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
 	<servers>
-    	<server host="moneysaved-tsung.i9d9cwmss2.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    	<server host="moneysaved-load-test.i9d9cwmss2.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   	</servers>
 
     <load>
@@ -41,11 +41,13 @@
   	</options>
 
   	<sessions>
+
+      <!-- simple session - test -->
     	<session name="http-example" probability="100" type="ts_http">
     		
     		<!-- visit the home page -->
     		<request>
-        		<http url='/' version='1.1' method='GET'></http>
+        		<http url="/" version='1.1' method='GET'></http>
     		</request>
 	
     		<!-- random choose a category -->
@@ -55,8 +57,8 @@
   				<var name="rnd_category" />
 			</setdynvars>
 
-			<request>
-        		<http url='/categories/%%_rnd_category%%' version='1.1' method='GET'></http>
+			<request subst="true">
+        		<http url="/categories/%%_rnd_category%%" version='1.1' method='GET'></http>
     		</request>
 
     		<!-- view deals and click on a random deal to check the deal detail -->
@@ -66,20 +68,25 @@
   				<var name="rnd_deal" />
 			</setdynvars>
 
-			<request>
-        		<http url='/deals/%%_rnd_deal%%' version='1.1' method='GET'></http>
+			<request subst="true">
+        		<http url="/deals/%%_rnd_deal%%" version='1.1' method='GET'></http>
     		</request>
+
+      <setdynvars sourcetype="eval"
+                  code='fun({Pid,DynVars})->
+                        {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
+                        re:replace(Val,"[+]","%2B",[global, {return,list}]) end.'>
+        <var name="authenticity_token" />
+      </setdynvars>
 
     		<!-- check the ranking page -->
     		<thinktime value="1" random="true"></thinktime>
 
     		<request>
-        		<http url='/rank/show' version='1.1' method='GET'></http>
+        		<http url="/rank/show" version='1.1' method='GET'></http>
     		</request>
-
-
-
 	    </session>
+
   	</sessions>
 
 </tsung>
