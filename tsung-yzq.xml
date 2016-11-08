@@ -43,41 +43,80 @@
   	<sessions>
 
       <!-- simple session - test -->
-    	<session name="http-example" probability="100" type="ts_http">
+    	<session name="login-test" probability="100" type="ts_http">
     		
     		<!-- visit the home page -->
-    		<request>
-        		<http url="/" version='1.1' method='GET'></http>
-    		</request>
+  	     <request>
+            <http url="/" version='1.1' method='GET'></http>
+  		    </request>
 	
-    		<!-- random choose a category -->
-			<thinktime value="1" random="true"></thinktime>
+			   <thinktime value="2" random="true"></thinktime>
 
-			<setdynvars sourcetype="random_number" start="1" end="5">
-  				<var name="rnd_category" />
-			</setdynvars>
+        <request>
+            <dyn_variable name="authenticity_token"></dyn_variable>
+            <http url="/login" version='1.1' method='GET'></http>
+        </request>
 
-			<request subst="true">
-        		<http url="/categories/%%_rnd_category%%" version='1.1' method='GET'></http>
-    		</request>
-
-    		<!-- view deals and click on a random deal to check the deal detail -->
-			<thinktime value="2" random="true"></thinktime>
-
-			<setdynvars sourcetype="random_number" start="1" end="200">
-  				<var name="rnd_deal" />
-			</setdynvars>
-
-			<request subst="true">
-        		<http url="/deals/%%_rnd_deal%%" version='1.1' method='GET'></http>
-    		</request>
-
-      <setdynvars sourcetype="eval"
+        <setdynvars sourcetype="eval"
                   code='fun({Pid,DynVars})->
                         {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
                         re:replace(Val,"[+]","%2B",[global, {return,list}]) end.'>
         <var name="authenticity_token" />
-      </setdynvars>
+        </setdynvars>
+
+        <setdynvars sourcetype="random_number" start="1" end="1000">
+          <var name="rnd_user" />
+       </setdynvars>
+
+        <request subst="true">
+            <http url="/login" 
+                  version='1.1' 
+                  method='POST' 
+                  contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;session%5Bemail%5D=test%%_rnd_user%%%40test.com&amp;session%5Bpassword%5D=123456&amp;session%5Bremember_me%5D=0&amp;commit=Log+in" 
+                  content_type="application/x-www-form-urlencoded"></http>
+        </request>
+
+
+
+        <!-- random choose a category -->
+        <thinktime value="1" random="true"></thinktime>
+
+			 <setdynvars sourcetype="random_number" start="1" end="5">
+  				<var name="rnd_category" />
+			 </setdynvars>
+
+			   <request subst="true">
+        		<http url="/categories/%%_rnd_category%%" version='1.1' method='GET'></http>
+    		</request>
+
+    		<!-- view deals and click on a random deal to check the deal detail -->
+			 <thinktime value="2" random="true"></thinktime>
+
+			 <setdynvars sourcetype="random_number" start="1" end="200">
+  				<var name="rnd_deal" />
+			 </setdynvars>
+
+			 <request subst="true">
+            <dyn_variable name="authenticity_token"></dyn_variable>
+        		<http url="/deals/%%_rnd_deal%%" version='1.1' method='GET'></http>
+    	 </request>
+
+        <setdynvars sourcetype="eval"
+                  code='fun({Pid,DynVars})->
+                        {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
+                        re:replace(Val,"[+]","%2B",[global, {return,list}]) end.'>
+        <var name="authenticity_token" />
+        </setdynvars>
+
+       <!-- like the deal-->
+
+       <request subst="true">
+            <http url="/likes" 
+                  version='1.1' 
+                  method='POST' 
+                  contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;like%5Bdeal_id%5D=%%_rnd_deal%%&amp;button=" 
+                  content_type="application/x-www-form-urlencoded"></http>
+        </request>
 
     		<!-- check the ranking page -->
     		<thinktime value="1" random="true"></thinktime>
