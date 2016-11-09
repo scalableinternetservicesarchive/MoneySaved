@@ -61,10 +61,12 @@ end
 for i in 1..1000 do
 	start = i
 	tail = i + 50
-	for j in start..tail do
-		Like.create!(user_id: i,
+	ActiveRecord::Base.transaction do
+		for j in start..tail do
+			Like.create!(user_id: i,
 				 deal_id: j
-		)
+			)
+		end
 	end
 end
 
