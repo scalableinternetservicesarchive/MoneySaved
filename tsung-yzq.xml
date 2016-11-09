@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
 	<servers>
-    	<server host="moneysaved-load-test-yzq.i9d9cwmss2.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    	<server host="moneysaved-load-test-m.i9d9cwmss2.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   	</servers>
 
     <load>

@@ -17,14 +17,16 @@
 end
 
 
-10000.times do |n|
-	name = Faker::Name.name
-	email = "test#{n+1}@test.com"
-	password = "123456"
+ActiveRecord::Base.transaction do
+	10000.times do |n|
+		name = Faker::Name.name
+		email = "test#{n+1}@test.com"
+		password = "123456"
 		User.create!(name: name,
 			email: email,
 			password:password,
 			password_confirmation: password)
+	end
 end
 
 Category.create!(name: "sneakers")
@@ -33,18 +35,18 @@ Category.create!(name: "electronics")
 Category.create!(name: "makeup")
 Category.create!(name: "food")
 
+ActiveRecord::Base.transaction do
+	20000.times do |n|
+		name = Faker::Commerce.product_name
+		effdate = Faker::Date.between(40.days.ago, Date.today)
+		expdate = Faker::Date.forward(40)
+		label = Faker::Number.between(1, 5)
+		store = Faker::Company.name
+		link = Faker::Internet.url
+		intro = Faker::Lorem.paragraph(2, false, 4)
+		price = Faker::Commerce.price
 
-20000.times do |n|
-	name = Faker::Commerce.product_name
-	effdate = Faker::Date.between(40.days.ago, Date.today)
-	expdate = Faker::Date.forward(40)
-	label = Faker::Number.between(1, 5)
-	store = Faker::Company.name
-	link = Faker::Internet.url
-	intro = Faker::Lorem.paragraph(2, false, 4)
-	price = Faker::Commerce.price
-
-	Deal.create!(name: name,
+		Deal.create!(name: name,
 				 effdate: effdate,
 				 expdate: expdate,
 				 label: label,
@@ -53,16 +55,15 @@ Category.create!(name: "food")
 				 intro: intro,
 				 price: price
 		)
+	end
 end
 
-users = User.all
-
-users.each do |user|
-	start = user.id
-	tail = start + 50
-	for i in start..tail do
-		Like.create!(user_id: user.id,
-				 deal_id: i
+for i in 1..1000 do
+	start = i
+	tail = i + 50
+	for j in start..tail do
+		Like.create!(user_id: i,
+				 deal_id: j
 		)
 	end
 end
