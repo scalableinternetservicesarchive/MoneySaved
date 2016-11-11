@@ -177,20 +177,10 @@
           <var name="rnd_liked_deal" />
        </setdynvars>
 
-       <request subst="true">
-            <dyn_variable name="authenticity_token"></dyn_variable>
+       <request subst="true"> 
             <http url="/deals/%%_rnd_liked_deal%%" version='1.1' method='GET'></http>
-       </request>
-
-        <setdynvars sourcetype="eval"
-                  code='fun({Pid,DynVars})->
-                        {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
-                        re:replace(Val,"[+]","%2B",[global, {return,list}]) end.'>
-        <var name="authenticity_token" />
-        </setdynvars>
-
-        
-
+       </request> 
+       
         <!-- do a search -->
         <thinktime value="2" random="true"></thinktime>
 
@@ -228,8 +218,8 @@
         <var name="authenticity_token" />
         </setdynvars>
 
-        <setdynvars sourcetype="random_number" start="1000" end="2000">
-          <var name="rnd_user" />
+        <setdynvars sourcetype="random_string" length="8">
+          <var name="rnd_user_email" />
        </setdynvars>
        <setdynvars sourcetype="random_string" length="10">
           <var name="rnd_user_name" />
@@ -241,7 +231,7 @@
                   method='POST' 
                   contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;
                   user%5Bname%5D=%%_rnd_user_name%%
-                  user%5Bemail%5D=tedt%%_rnd_user%%%40test.com&amp;user%5Bpassword%5D=123456&amp;
+                  user%5Bemail%5D=%%_rnd_user_email%%%40test.com&amp;user%5Bpassword%5D=123456&amp;
                   user%5Bpassword_confirmation%5D=123456&amp;
                   commit=Create+my+account" 
                   content_type="application/x-www-form-urlencoded"></http>
@@ -279,7 +269,7 @@
         <!-- do a search -->
         <thinktime value="2" random="true"></thinktime>
 
-        <setdynvars sourcetype="random_string" length="17">
+        <setdynvars sourcetype="random_string" length="2">
           <var name="rnd_deal_name" />
        </setdynvars>
  
