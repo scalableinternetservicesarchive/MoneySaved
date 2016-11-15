@@ -2,8 +2,12 @@ class LikesController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
   
   	def create 
-  		current_user.likes.create(likes_params)
-  		redirect_to request.referrer
+  		begin
+        current_user.likes.create(likes_params)
+  		  redirect_to request.referrer
+      rescue
+        redirect_to root_url
+      end
   	end
 
 
