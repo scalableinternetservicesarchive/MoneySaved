@@ -125,6 +125,7 @@
 	    </session>
       <!-- end -->
 
+
       <!-- user-flow-1 -->
       <session name="user-flow-1" probability="25" type="ts_http">
         
@@ -223,14 +224,10 @@
        </setdynvars>
 
         <request subst="true">
-            <http url="/user/new" 
+            <http url="/users" 
                   version='1.1' 
                   method='POST' 
-                  contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;
-                  user%5Bname%5D=%%_rnd_user_name%%
-                  user%5Bemail%5D=%%_rnd_user_email%%%40test.com&amp;user%5Bpassword%5D=123456&amp;
-                  user%5Bpassword_confirmation%5D=123456&amp;
-                  commit=Create+my+account" 
+                  contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;user%5Bname%5D=%%_rnd_user_name%%&amp;user%5Bemail%5D=%%_rnd_user_email%%%40test.com&amp;user%5Bpassword%5D=123456&amp;user%5Bpassword_confirmation%5D=123456&amp;commit=Create+my+account" 
                   content_type="application/x-www-form-urlencoded"></http>
         </request>
 
@@ -279,8 +276,6 @@
           <request>
             <http url="/" version='1.1' method='GET'></http>
           </request>
-
-         <thinktime value="2" random="true"></thinktime>
 
           <!-- random choose a category -->
           <thinktime value="2" random="true"></thinktime>
