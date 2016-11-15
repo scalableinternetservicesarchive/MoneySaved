@@ -169,7 +169,7 @@
         <!-- check one random liked deal -->
        <thinktime value="2" random="true"></thinktime>
 
-       <setdynvars sourcetype="random_number" start="1" end="1000">
+       <setdynvars sourcetype="random_number" start="1" end="20000">
           <var name="rnd_liked_deal" />
        </setdynvars>
 
@@ -180,7 +180,7 @@
         <!-- do a search -->
         <thinktime value="2" random="true"></thinktime>
 
-        <setdynvars sourcetype="random_string" length="17">
+        <setdynvars sourcetype="random_string" length="2">
           <var name="rnd_deal_name" />
        </setdynvars> 
        
@@ -190,6 +190,7 @@
         
       </session>
       <!-- end -->
+
 
       <!-- user-flow-5 -->
       <session name="user-flow-5" probability="15" type="ts_http">
