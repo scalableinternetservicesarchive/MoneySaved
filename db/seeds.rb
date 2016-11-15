@@ -5,17 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do |n|
-	name = Faker::Name.name
-	email = "admin#{n+1}@test.com"
-	password = "123456"
-		User.create!(name: name,
-			email: email,
-			password:password,
-			password_confirmation: password,
-			admin: true)
-end
-
 
 ActiveRecord::Base.transaction do
 	1000.times do |n|
@@ -28,6 +17,19 @@ ActiveRecord::Base.transaction do
 			password_confirmation: password)
 	end
 end
+
+10.times do |n|
+	name = Faker::Name.name
+	email = "admin#{n+1}@test.com"
+	password = "123456"
+		User.create!(name: name,
+			email: email,
+			password:password,
+			password_confirmation: password,
+			admin: true)
+end
+
+
 
 Category.create!(name: "sneakers")
 Category.create!(name: "clothes")
