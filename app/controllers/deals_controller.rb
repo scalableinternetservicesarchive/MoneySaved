@@ -15,6 +15,12 @@ class DealsController < ApplicationController
     @newcomment = current_user.comments.build if logged_in?
     @like = current_user.likes.build if logged_in?
     @comments = Comment.where("deal_id = ?",params[:id]).paginate(:page => params[:page], :per_page => 20)
+    if stale?(@comments)
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @comments }
+      end
+    end
   end
 
   # GET /deals/new
