@@ -17,8 +17,7 @@ class DealsController < ApplicationController
     @likenum = @detail.liked
     @comments = Comment.where("deal_id = ?",params[:id]).paginate(:page => params[:page], :per_page => 20)
 
-    #fresh_when(@comments)
-    #fresh_when(@likenum)
+    fresh_when([@comments,@likenum])
   end
 
   # GET /deals/new
