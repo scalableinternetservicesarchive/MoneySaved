@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   	def create 
   		begin
         current_user.likes.create(likes_params)
-  		  redirect_to request.referrer
+        redirect_to request.referrer
       rescue
         redirect_to root_url
       end

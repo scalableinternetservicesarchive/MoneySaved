@@ -18,7 +18,7 @@
                     <p><%= "#{@comments.count}" %> reviews</p>
                 </div>
                 <div class="ratings">
-                    <p><%= "#{@detail.liked.count}" %> like</p>
+                    <p id="likecount"><%= "#{@likenum.count}" %> like</p>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                 <div>
                 <% if logged_in? %>
                     <%= render 'shared/order' %>
-                    <% if current_user.likes.find_by(deal_id: @detail.id) != nil%>
+                    <% if current_user.likes.find_by(deal_id: @detail.id) != nil %>
                         <%= render 'shared/unlike' %>
                     <% else %>
                         <%= render 'shared/like' %>
