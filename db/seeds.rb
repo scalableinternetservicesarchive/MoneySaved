@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
-	10000.times do |n|
+	666.times do |n|
 		name = Faker::Name.name
 		email = "test#{n+1}@test.com"
 		password = "123456"
@@ -38,7 +38,7 @@ Category.create!(name: "makeup")
 Category.create!(name: "food")
 
 ActiveRecord::Base.transaction do
-	100000.times do |n|
+	666.times do |n|
 		name = Faker::Commerce.product_name
 		effdate = Faker::Date.between(40.days.ago, Date.today)
 		expdate = Faker::Date.forward(40)
@@ -60,7 +60,7 @@ ActiveRecord::Base.transaction do
 	end
 end
 
-for i in 1..5000 do
+for i in 1..888 do
 	start = i
 	tail = i + 50
 	ActiveRecord::Base.transaction do
