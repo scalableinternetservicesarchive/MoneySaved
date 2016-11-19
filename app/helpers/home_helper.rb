@@ -4,8 +4,7 @@ module HomeHelper
     		"deal/#{d.id}/#{d.updated_at}"
 	end
 
-  def cache_key_for_deal_list
-    ("deal_list/#{Deals.maximum(:updated_at)}/"
-     + Comments.maximum(:updated_at).to_s)
+  def cache_key_for_deal_table
+    ("deal_table/#{Deal.maximum(:updated_at)}")
   end
 end

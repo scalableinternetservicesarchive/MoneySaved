@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 	def home
 		@category = Category.all
 		@deal = Deal.last(12)
-
+=begin
         	#cache
         	if stale?(@deal)
               	respond_to do |format|
@@ -10,6 +10,6 @@ class HomeController < ApplicationController
                 	format.json { render json: @deal }
           	       end
   	       end
-
+=end
 	end
 end

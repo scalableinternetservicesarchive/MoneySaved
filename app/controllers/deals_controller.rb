@@ -17,7 +17,7 @@ class DealsController < ApplicationController
     @likenum = @detail.liked
     @comments = Comment.where("deal_id = ?",params[:id]).paginate(:page => params[:page], :per_page => 20)
 
-     fresh_when([@comments,@likenum])  #we dont have to consider whether comments and likenum change or not. Cauz' the thing we want to cache is the detailed information of  the deal itself..
+     #fresh_when([@comments,@likenum])  #we dont have to consider whether comments and likenum change or not. Cauz' the thing we want to cache is the detailed information of  the deal itself..
      #fresh_when([@detail])                                                                 
   end
 
