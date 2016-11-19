@@ -1,50 +1,54 @@
 <div class="row">
     <% @deal.each do |d| %>
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            
-            <div class="thumbnail">
-                <img src="http://placehold.it/320x150" alt="">
-                <div class="caption">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <% if d.expdate.to_date >= Date.today%>
-                            <h4>                                
-                                <%= link_to "#{d.name}", controller: "deals", action: "show", id: "#{d.id}"%>
-                            </h4>
-                            <% else %>
-                                <span style="text-decoration:line-through;font-size: 18px;">
-                                <%= link_to "#{d.name} EXPIRED", controller: "deals", action: "show", id: "#{d.id}"%>
-                                </span>
-                            <%end %>
+   <% cache(cache_key_for_deal(d)) do %>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                
+                <div class="thumbnail">
+                    <img src="http://placehold.it/320x150" alt="">
+                    <div class="caption">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <% if d.expdate.to_date >= Date.today%>
+                                <h4>                                
+                                    <%= link_to "#{d.name}", controller: "deals", action: "show", id: "#{d.id}"%>
+                                </h4>
+                                <% else %>
+                                    <span style="text-decoration:line-through;font-size: 18px;">
+                                    <%= link_to "#{d.name} EXPIRED", controller: "deals", action: "show", id: "#{d.id}"%>
+                                    </span>
+                                <%end %>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                    <div class="col-md-6">
-                            <h4 class="pull-left"><%= "#{d.expdate}" %></h4>
-                        </div>
+                        <div class="row">
                         <div class="col-md-6">
-                            <h4 class="pull-right">$<%= "#{d.price}" %></h4>
-                        </div>
-                    </div>                             
-                </div>
+                                <h4 class="pull-left"><%= "#{d.expdate}" %></h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="pull-right">$<%= "#{d.price}" %></h4>
+                            </div>
+                        </div>                             
+                    </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="ratings">
-                            <p><%= "#{d.reviews.count}" %> reviews</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="ratings">
+                                <p><%= "#{d.reviews.count}" %> reviews</p>
+                            </div>
+                        </div>
+                    
+                        <div class="offset-md-6 col-md-6">
+                            <div class="ratings pull-right">
+                                <p><%= "#{d.likes.count}" %> likes</p>
+                            </div>
                         </div>
                     </div>
-                
-                    <div class="offset-md-6 col-md-6">
-                        <div class="ratings pull-right">
-                            <p><%= "#{d.likes.count}" %> likes</p>
-                        </div>
-                    </div>
+                    
                 </div>
-                
+            
             </div>
-        
-        </div>
-    <% end %>
+
+        <%end%>
+
+    <%end %>
 </div>

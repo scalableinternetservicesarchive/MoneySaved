@@ -1,4 +1,25 @@
 Rails.application.configure do
+
+
+
+
+
+#open the cache function
+#config.action_controller.perform_caching = true
+
+#cache  directory
+#config.cache_store = :file_store, '~/workspace/MoneySaved'
+
+#store in  another machine
+#config.cache_store = :mem_cache_store, 'cache-1.example.com'
+
+
+
+
+
+
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -11,6 +32,8 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+
+
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -25,6 +48,9 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+
+
+
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

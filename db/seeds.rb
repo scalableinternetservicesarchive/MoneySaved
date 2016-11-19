@@ -38,7 +38,7 @@ Category.create!(name: "makeup")
 Category.create!(name: "food")
 
 ActiveRecord::Base.transaction do
-	666.times do |n|
+	888.times do |n|
 		name = Faker::Commerce.product_name
 		effdate = Faker::Date.between(40.days.ago, Date.today)
 		expdate = Faker::Date.forward(40)
@@ -60,7 +60,7 @@ ActiveRecord::Base.transaction do
 	end
 end
 
-for i in 1..888 do
+for i in 1..666 do
 	start = i
 	tail = i + 50
 	ActiveRecord::Base.transaction do
