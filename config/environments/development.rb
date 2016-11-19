@@ -5,7 +5,7 @@ Rails.application.configure do
 
 
 #open the cache function
-#config.action_controller.perform_caching = true
+config.action_controller.perform_caching = true
 
 #cache  directory
 #config.cache_store = :file_store, '~/workspace/MoneySaved'
