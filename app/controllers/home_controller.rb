@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
 	def home
-		@category = Category.all
-		@deal = Deal.last(12)
+		@category = Category.includes(:deal).all
+#		@deal = Deal.last(12)
+            @deal = Deal.includes(:likes)
+                                  .includes(:comments)
+                                  .last(12)
+
 =begin
         	#cache
         	if stale?(@deal)
