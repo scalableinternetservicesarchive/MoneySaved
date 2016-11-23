@@ -28,9 +28,6 @@
       <arrivalphase phase="5" duration="30" unit="second">
           <users arrivalrate="16" unit="second"></users>
       </arrivalphase>
-      <arrivalphase phase="6" duration="30" unit="second">
-          <users arrivalrate="32" unit="second"></users>
-      </arrivalphase>
   	</load>
 
 
@@ -100,27 +97,9 @@
 			 </setdynvars>
 
 			 <request subst="true">
-            <dyn_variable name="authenticity_token"></dyn_variable>
         		<http url="/deals/%%_rnd_deal%%" version='1.1' method='GET'></http>
     	 </request>
 
-        <setdynvars sourcetype="eval"
-                  code='fun({Pid,DynVars})->
-                        {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
-                        re:replace(Val,"[+]","%2B",[global, {return,list}]) end.'>
-        <var name="authenticity_token" />
-        </setdynvars>
-
-       <!-- like the deal-->
-       <request subst="true">
-            <http url="/likes" 
-                  version='1.1' 
-                  method='POST' 
-                  contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;like%5Bdeal_id%5D=%%_rnd_deal%%&amp;button=" 
-                  content_type="application/x-www-form-urlencoded"></http>
-        </request>
-
-    		
     		<thinktime value="2" random="true"></thinktime>
 
         <request subst="true">
