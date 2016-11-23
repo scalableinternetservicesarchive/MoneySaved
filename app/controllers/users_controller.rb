@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user_like = Deal.where(:id => list_like).take(3)
     # get current_user's order list
     @order = Order.where("user_id = ?",params[:id]).take(3)
+    fresh_when([@order,@user_like])
   end
 
   def user_like_list
@@ -31,10 +32,12 @@ class UsersController < ApplicationController
       list_like.push(l.deal_id)
     end
     @user_like_list = Deal.where(:id => list_like).paginate(:page => params[:page], :per_page => 20)
+    fresh_when(@like)
   end
 
   def user_order_list
     @order_list = Order.where("user_id = ?",current_user.id).paginate(:page => params[:page], :per_page => 20)
+    fresh_when(@order_list)
   end
   
   def create
