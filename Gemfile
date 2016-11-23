@@ -61,4 +61,5 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 group :production do
   gem 'pg', '~> 0.19'
+  gem 'dalli'
 end
