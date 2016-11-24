@@ -1,7 +1,7 @@
 module DealsHelper
 
 	def cache_key_for_deal(deal)
-    	"deal/#{deal.id}/#{deal.updated_at}/#{deal.comments.count}#{deal.likes.count}"
+    	"deal/#{deal.id}/#{deal.updated_at}/#{deal.comments.size}#{deal.likes.size}"
   	end
 
   	def cache_key_for_deal_list(deals)
