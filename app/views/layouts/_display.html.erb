@@ -1,7 +1,7 @@
-<% cache(cache_key_for_deal_list(@deal)) do %>
+
 <div class="row">
     <% @deal.each do |d| %>
-    <% cache(cache_key_for_deal(d)) do %>
+    
         <div class="col-sm-4 col-lg-4 col-md-4">
             
             <div class="thumbnail">
@@ -48,7 +48,6 @@
             </div>
         
         </div>
-        <% end %>
+        
     <% end %>
 </div>
-<% end %>
