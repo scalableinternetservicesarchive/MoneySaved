@@ -50,7 +50,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store, 'moneysaved-test.dgkfha.0001.usw2.cache.amazonaws.com'
+  config.cache_store = :dalli_store, 'moneysaved-test.dgkfha.0001.usw2.cache.amazonaws.com', 'moneysaved-test.dgkfha.0002.usw2.cache.amazonaws.com:11211', 'moneysaved-test.dgkfha.0003.usw2.cache.amazonaws.com:11211', 'moneysaved-test.dgkfha.0004.usw2.cache.amazonaws.com:11211'
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
