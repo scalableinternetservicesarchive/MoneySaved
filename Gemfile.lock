@@ -57,6 +57,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -176,6 +177,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-rails (~> 4.2)
+  dalli
   faker (= 1.6.3)
   jbuilder (~> 2.5)
   jquery-rails
