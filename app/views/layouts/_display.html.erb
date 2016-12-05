@@ -1,9 +1,9 @@
-<!-- <% cache(cache_key_for_deal_list(@deal)) do %> -->
+<% cache(cache_key_for_deal_list(@deal)) do %> 
 <div class="row">
     <% @deal.each do |d| %>
     <% com = d.comments.size %>
     <% lik = d.likes.size %>
-    <!-- <% cache(cache_key_for_deal(d,com,lik)) do %> -->
+    <% cache(cache_key_for_deal(d,com,lik)) do %>
         <div class="col-sm-4 col-lg-4 col-md-4">
             
             <div class="thumbnail">
@@ -50,7 +50,7 @@
             </div>
         
         </div>
-        <!-- <% end %> -->
+        <% end %>
     <% end %>
 </div>
-<!-- <% end %> -->
+ <% end %> 
